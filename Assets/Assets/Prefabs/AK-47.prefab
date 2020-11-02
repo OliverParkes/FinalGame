@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 8277025315825789225}
   - component: {fileID: 8260940980076693415}
   - component: {fileID: 8250964465755334857}
+  - component: {fileID: 1885356854175482315}
+  - component: {fileID: 1361756916976510438}
   m_Layer: 0
   m_Name: AK-47
   m_TagString: Untagged
@@ -79,3 +81,35 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &1885356854175482315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8275009488215035815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06c81d59654fd1c449afd9c42954966e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  range: 0
+  FPScam: {fileID: 0}
+  MuzzleFlash: {fileID: 0}
+--- !u!114 &1361756916976510438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8275009488215035815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06c81d59654fd1c449afd9c42954966e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
+  range: 100
+  FPScam: {fileID: 0}
+  MuzzleFlash: {fileID: 0}

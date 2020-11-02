@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Weapon : MonoBehaviour
+public class WeaponSemi : MonoBehaviour
 {
     public float damage;
     public float range;
@@ -19,7 +19,7 @@ public class Weapon : MonoBehaviour
     public ParticleSystem MuzzleFlash;
     private Rigidbody RB;
 
-    private float nextTimetoFire = 0f;
+    
 
     // Update is called once per frame
 
@@ -29,7 +29,6 @@ public class Weapon : MonoBehaviour
     }
     private void Start()
     {
-
         RB = GetComponentInParent<Rigidbody>();
     }
     void Update()
@@ -41,9 +40,8 @@ public class Weapon : MonoBehaviour
             StartCoroutine(Reload());
             return;
         }
-        if (Input.GetButton("Fire1") && Time.time >= nextTimetoFire)
+        if (Input.GetButtonDown("Fire1") )
         {
-            nextTimetoFire = Time.time + 1f / firerate;
             MuzzleFlash.Play();
             Shoot();
 
@@ -76,3 +74,5 @@ public class Weapon : MonoBehaviour
         isReloading = false;
     }
 }
+
+    

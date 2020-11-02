@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 5132440597828002529}
   - component: {fileID: 4206662463428221143}
   - component: {fileID: 7592392032057828398}
+  - component: {fileID: 6388189239420140713}
   m_Layer: 0
-  m_Name: shotgun_3
+  m_Name: Shotgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,3 +80,18 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &6388189239420140713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8169897369085808882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06c81d59654fd1c449afd9c42954966e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  range: 0
+  FPScam: {fileID: 0}

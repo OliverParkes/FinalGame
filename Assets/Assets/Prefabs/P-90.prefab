@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8788489874970034388}
   - component: {fileID: 8758996411267450490}
   - component: {fileID: 8766984358159197854}
+  - component: {fileID: 7492274657639879786}
   m_Layer: 0
   m_Name: P-90
   m_TagString: Untagged
@@ -80,6 +81,27 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &7492274657639879786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8790845087467785620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06c81d59654fd1c449afd9c42954966e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  range: 0
+  firerate: 0
+  recoil: 0
+  m_maxAmmo: 0
+  m_currentAmmo: 0
+  m_reloadTIme: 1
+  FPScam: {fileID: 0}
+  MuzzleFlash: {fileID: 0}
 --- !u!1001 &5596632702388224585
 PrefabInstance:
   m_ObjectHideFlags: 0
