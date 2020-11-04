@@ -7,6 +7,7 @@ public class WeaponSemi : MonoBehaviour
     public float range;
     public float firerate;
     public float recoil;
+    public float Mass;
 
     public int m_maxAmmo;
     public int m_currentAmmo;
@@ -26,10 +27,11 @@ public class WeaponSemi : MonoBehaviour
     private void Awake()
     {
         m_currentAmmo = m_maxAmmo;
+        RB = GetComponentInParent<Rigidbody>();
     }
     private void Start()
     {
-        RB = GetComponentInParent<Rigidbody>();
+        RB.mass = RB.mass + Mass;
     }
     void Update()
     {
@@ -44,6 +46,7 @@ public class WeaponSemi : MonoBehaviour
         {
             MuzzleFlash.Play();
             Shoot();
+            //RB.AddForceAtPosition(transform.forward*recoil);
 
         }
     }
