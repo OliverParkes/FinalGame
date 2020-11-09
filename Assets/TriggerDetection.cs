@@ -7,12 +7,16 @@ public class TriggerDetection : MonoBehaviour
 
     public static bool Firing = false;
 
+    public GameObject barrelL;
+    public GameObject barrelR;
+
     public bool FireLocal;
     private void OnTriggerStay(Collider other)
     {
         if(other.tag == "Player")
         {
-            Firing = true;
+            barrelL.GetComponent<WeaponEnemy>().Firing = true;
+            barrelR.GetComponent<WeaponEnemy>().Firing = true;
         }
     }
 
@@ -20,12 +24,18 @@ public class TriggerDetection : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            Firing = false;
+            barrelL.GetComponent<WeaponEnemy>().Firing = false;
+            barrelR.GetComponent<WeaponEnemy>().Firing = false;
         }
     }
 
     private void Update()
     {
         FireLocal = Firing;
+    }
+
+    public void ResetRound()
+    {
+        Firing = false;
     }
 }

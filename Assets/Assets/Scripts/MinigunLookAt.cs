@@ -5,12 +5,12 @@ using UnityEngine;
 public class MinigunLookAt : MonoBehaviour
 {
 
-    public GameObject Player;
-    
+    public Transform Player;
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        transform.LookAt(Player.transform);
+        transform.LookAt(Player);
     }
+    
 }

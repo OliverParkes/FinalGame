@@ -93,15 +93,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06c81d59654fd1c449afd9c42954966e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
-  range: 0
-  firerate: 0
+  damage: 10
+  range: 75
+  firerate: 18.3
   recoil: 0
-  m_maxAmmo: 0
+  spread: 0.05
+  m_maxAmmo: 50
   m_currentAmmo: 0
-  m_reloadTIme: 1
+  m_reloadTIme: 1.5
+  Mask:
+    serializedVersion: 2
+    m_Bits: 1335
   FPScam: {fileID: 0}
   MuzzleFlash: {fileID: 0}
+  Impact: {fileID: 1570927096764274, guid: 643639841fb531e4ba8097fed4eb9ac7, type: 3}
 --- !u!1001 &5596632702388224585
 PrefabInstance:
   m_ObjectHideFlags: 0

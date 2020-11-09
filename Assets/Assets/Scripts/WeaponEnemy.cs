@@ -9,19 +9,25 @@ public class WeaponEnemy : MonoBehaviour
     public float recoil;
     public LayerMask mask;
     public float spread;
+    private bool audioPlaying;
 
-    public ParticleSystem Impact;
+    public GameObject Impact;
 
     public int m_maxAmmo;
     public int m_currentAmmo;
     public float m_reloadTIme;
 
-    private bool isReloading = false;
+    public bool isReloading = false;
 
     public ParticleSystem MuzzleFlash;
-    public AudioSource GunShot;
+    
     private Rigidbody RB;
     public GameObject Muzzle;
+    public AudioSource Gunshot;
+
+    public bool firable;
+
+    public bool Firing;
 
     private float nextTimetoFire = 0f;
 
@@ -30,39 +36,70 @@ public class WeaponEnemy : MonoBehaviour
     private void Awake()
     {
         m_currentAmmo = m_maxAmmo;
+        
     }
 
     
 
     private void Update()
     {
-    
-        if (TriggerDetection.Firing == true)
+        damage = GameManager.Wave;
+        firable = TrackingMinigun.fireable;
+
+        if (Firing == true)
         {
-            if (isReloading == true)
+            if(firable == false)
+            {
+                Gunshot.Stop();
+                audioPlaying = false;
                 return;
+            }
+            if (isReloading == true)
+            {
+                Gunshot.Stop();
+                audioPlaying = false;
+                return;
+            }
+                
             if (m_currentAmmo <= 0)
             {
                 StartCoroutine(Reload());
+                Gunshot.Stop();
+                audioPlaying = false;
                 return;
             }
             if (Time.time >= nextTimetoFire)
             {
                 nextTimetoFire = Time.time + 1f / firerate;
                 MuzzleFlash.Play();
-                GunShot.Play();
+
+                playAudio();
+                
                 Shoot();
 
                 transform.Rotate(200 * Time.deltaTime*10, 0f, 0f);
                 
             }
         }
-        
+        else
+        {
+            Gunshot.Stop();
+            audioPlaying = false;
+        }
+            
+
     }
+
+    public void RoundReset()
+    {
+        isReloading = false;
+        m_currentAmmo = m_maxAmmo;
+    }
+
 
     void Shoot()
     {
-        GunShot.Play();
+        
         m_currentAmmo--;
         RaycastHit hit;
         if (Physics.Raycast(Muzzle.transform.position, (Muzzle.transform.forward + Random.insideUnitSphere*spread).normalized, out hit, range, mask))
@@ -74,7 +111,8 @@ public class WeaponEnemy : MonoBehaviour
             {
                 HP.TakeDamage(damage);
             }
-            Instantiate(Impact, hit.point, Quaternion.LookRotation(hit.normal));
+            GameObject Explosion = Instantiate (Impact, hit.point, Quaternion.LookRotation(hit.normal));
+            Destroy(Explosion, 1);
         }
     }
 
@@ -87,4 +125,17 @@ public class WeaponEnemy : MonoBehaviour
         m_currentAmmo = m_maxAmmo;
         isReloading = false;
     }
+    public void playAudio()
+    {
+        if(Gunshot.isPlaying == true)
+        {
+            return;
+        }
+        else
+            Gunshot.Play();
+
+
+    }
+
+
 }
